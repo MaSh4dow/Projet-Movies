@@ -2,7 +2,7 @@ const fs = require('fs'); // gestionnaire de fichier node (Create / read / Write
 //const { title } = require('process');
 // const { stringify } = require('querystring');
 //const { connect } = require('http2');
-const jsonFile = require  ('./movies2.json'); // acces to movies.json
+const jsonFile = require  ('./movies.json'); // acces to movies.json
 //const FileOut = require ('./movies.out.json')
 
 
@@ -15,7 +15,7 @@ const moviesObjToString = JSON.stringify(jsonFile);
 const toJsonMovies = JSON.parse(moviesObjToString);
 //    console.log(typeof toJsonMovies);
 //    console.log(toJsonMovies);
-
+let start = new Date().getTime();
 var filmWithDateArray = [];
 jsonFile.forEach((film) => {
     var release_date = film.release_date;
@@ -32,6 +32,9 @@ jsonFile.forEach((film) => {
 const filmsFormated = JSON.stringify(filmWithDateArray);
 
 fs.writeFileSync('movies.out.json', filmsFormated);
+let stop = new Date().getTime();
+console.log("time : " + ((stop - start) / 1000) + "s");
+
 
    
 // writefilessync
