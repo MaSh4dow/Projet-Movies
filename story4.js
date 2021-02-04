@@ -46,6 +46,5 @@ yearsChoosen.question('Quelle année de film souhaitez vous ? ', years => {
     });
 });
 
-let filmWithDateArray = []
-const filmsFormated = JSON.stringify(filmWithDateArray);
+
   
