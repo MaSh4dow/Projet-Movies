@@ -23,13 +23,13 @@ jsonFile.forEach((film) => {
 
     const filmReleaseDate = new Date(release_date * 1000);
 //   console.log(moonLanding.getFullYear()); 
-    film.title = film.title + " " + filmReleaseDate.getFullYear();
+    film.title = film.title + " (" + filmReleaseDate.getFullYear() + ")";
     console.log (film);
     filmWithDateArray.push(film);
     }
 );
 
-const filmsFormated = JSON.stringify(filmWithDateArray);
+const filmsFormated = JSON.stringify(filmWithDateArray,null,'\t');
 
 fs.writeFileSync('movies.out.json', filmsFormated);
 let stop = new Date().getTime();
